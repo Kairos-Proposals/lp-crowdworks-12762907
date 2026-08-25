@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kairos ご提案｜品質管理・チェック専任ディレクション体制</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F4F4EF;
+    --bg-alt:#EAEAE2;
+    --ink:#20262A;
+    --ink-soft:#4B5359;
+    --teal:#2C6864;
+    --teal-deep:#1D4744;
+    --teal-soft:#7FA7A2;
+    --brass:#B08A3E;
+    --line:#C7CCC3;
+    --card:#FFFFFF;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Zen Kaku Gothic New', sans-serif;
+    line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.mincho{
+    font-family:'Shippori Mincho', serif;
+    letter-spacing:.03em;
+  }
+  .wrap{
+    max-width:1080px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+  .label{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-size:12px;
+    letter-spacing:.24em;
+    color:var(--teal-deep);
+    font-weight:700;
+    text-transform:uppercase;
+  }
+  .label::before{
+    content:"";
+    width:18px;
+    height:1px;
+    background:var(--brass);
+    display:inline-block;
+  }
+
+  /* ---------- 背景の目盛り演出 ---------- */
+  .grid-tick{
+    position:relative;
+  }
+  .grid-tick::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image:
+      repeating-linear-gradient(90deg, rgba(44,104,100,0.06) 0, rgba(44,104,100,0.06) 1px, transparent 1px, transparent 64px),
+      repeating-linear-gradient(0deg, rgba(44,104,100,0.05) 0, rgba(44,104,100,0.05) 1px, transparent 1px, transparent 64px);
+    pointer-events:none;
+  }
+
+  /* ---------- ヘッダー ---------- */
+  header{
+    padding:20px 0;
+    border-bottom:1px solid var(--line);
+  }
+  header .wrap{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  .logo{
+    font-family:'Shippori Mincho',serif;
+    font-weight:800;
+    font-size:20px;
+    letter-spacing:.14em;
+    color:var(--teal-deep);
+  }
+  .logo span{color:var(--brass);}
+  .header-tag{
+    font-size:11px;
+    color:var(--ink-soft);
+    letter-spacing:.1em;
+  }
+
+  /* ---------- ヒーロー ---------- */
+  .hero{
+    position:relative;
+    padding:100px 0 90px;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    top:-120px; right:-140px;
+    width:420px; height:420px;
+    border:1px solid var(--teal-soft);
+    border-radius:50%;
+  }
+  .hero::before{
+    content:"";
+    position:absolute;
+    bottom:-160px; right:-40px;
+    width:300px; height:300px;
+    border:1px solid var(--brass);
+    opacity:.4;
+    border-radius:50%;
+  }
+  .hero .wrap{position:relative; z-index:2;}
+  .hero h1{
+    font-size:clamp(32px,5.2vw,58px);
+    line-height:1.5;
+    color:var(--ink);
+    margin:26px 0 22px;
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:var(--teal);
+    position:relative;
+  }
+  .hero h1 em::after{
+    content:"";
+    position:absolute;
+    left:0; right:0; bottom:2px;
+    height:8px;
+    background:rgba(176,138,62,0.28);
+    z-index:-1;
+  }
+  .hero p.lead{
+    max-width:560px;
+    color:var(--ink-soft);
+    font-size:16px;
+  }
+  .check-marks{
+    display:flex;
+    gap:10px;
+    margin-top:36px;
+    flex-wrap:wrap;
+  }
+  .check-marks span{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    font-size:12.5px;
+    color:var(--teal-deep);
+    border:1px solid var(--line);
+    background:var(--card);
+    padding:7px 14px;
+    border-radius:2px;
+  }
+  .check-marks span::before{
+    content:"✓";
+    color:var(--brass);
+    font-weight:700;
+  }
+
+  /* ---------- セクション共通 ---------- */
+  section{
+    padding:84px 0;
+  }
+  .section-head{
+    max-width:640px;
+    margin-bottom:48px;
+  }
+  .section-head h2{
+    font-size:clamp(24px,3.4vw,34px);
+    margin:14px 0 18px;
+    color:var(--ink);
+  }
+  .section-head p{
+    color:var(--ink-soft);
+    font-size:15px;
+  }
+
+  /* ---------- 理解セクション ---------- */
+  .understand{
+    background:var(--teal-deep);
+    color:#EFEFE8;
+    position:relative;
+  }
+  .understand .label{color:#C9D9D5;}
+  .understand .label::before{background:var(--brass);}
+  .understand .section-head p{color:#CBD9D4;}
+  .quote-block{
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.16);
+    border-left:3px solid var(--brass);
+    padding:32px 34px;
+    font-family:'Shippori Mincho',serif;
+    font-size:19px;
+    line-height:2;
+    max-width:760px;
+  }
+  .understand-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+    margin-top:44px;
+  }
+  .understand-grid .item{
+    border-top:1px solid rgba(255,255,255,0.3);
+    padding-top:16px;
+  }
+  .understand-grid .item .num{
+    font-family:'Shippori Mincho',serif;
+    color:var(--brass);
+    font-size:13px;
+    letter-spacing:.1em;
+  }
+  .understand-grid .item p{
+    margin:8px 0 0;
+    font-size:14px;
+    color:#DCE5E2;
+  }
+
+  /* ---------- 価値カード ---------- */
+  .values{
+    background:var(--bg);
+  }
+  .value-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:20px;
+  }
+  .value-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    padding:30px 26px;
+    position:relative;
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .value-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 14px 30px rgba(29,71,68,0.12);
+  }
+  .value-card .idx{
+    font-family:'Shippori Mincho',serif;
+    font-size:13px;
+    color:var(--brass);
+    letter-spacing:.14em;
+    display:block;
+    margin-bottom:14px;
+  }
+  .value-card h3{
+    font-size:18px;
+    margin:0 0 12px;
+    color:var(--teal-deep);
+  }
+  .value-card p{
+    font-size:13.6px;
+    color:var(--ink-soft);
+    margin:0;
+  }
+  .value-card::before{
+    content:"";
+    position:absolute;
+    top:12px; right:12px;
+    width:8px; height:8px;
+    border-top:1px solid var(--teal-soft);
+    border-right:1px solid var(--teal-soft);
+  }
+
+  /* ---------- 進め方 ---------- */
+  .flow{
+    background:var(--bg-alt);
+  }
+  .flow-list{
+    counter-reset:step;
+    display:flex;
+    flex-direction:column;
+    gap:0;
+    border-top:1px solid var(--line);
+  }
+  .flow-item{
+    display:grid;
+    grid-template-columns:110px 1fr;
+    gap:28px;
+    padding:28px 0;
+    border-bottom:1px solid var(--line);
+    align-items:start;
+  }
+  .flow-item .step-tag{
+    font-family:'Shippori Mincho',serif;
+    color:var(--teal);
+    font-size:14px;
+    letter-spacing:.08em;
+    counter-increment:step;
+  }
+  .flow-item .step-tag::before{
+    content:"STEP " counter(step);
+    display:block;
+    font-size:11px;
+    color:var(--brass);
+    letter-spacing:.2em;
+    margin-bottom:6px;
+  }
+  .flow-item h3{
+    font-size:17px;
+    margin:0 0 8px;
+    color:var(--ink);
+  }
+  .flow-item p{
+    font-size:13.6px;
+    color:var(--ink-soft);
+    margin:0;
+  }
+  .flow-note{
+    margin-top:28px;
+    font-size:13px;
+    color:var(--ink-soft);
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .flow-note::before{
+    content:"※";
+    color:var(--brass);
+  }
+
+  /* ---------- クロージング ---------- */
+  .closing{
+    background:linear-gradient(160deg, var(--teal-deep) 0%, #143634 100%);
+    color:#F1F1EA;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .closing::before{
+    content:"";
+    position:absolute;
+    width:600px;height:600px;
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:50%;
+    top:-260px; left:50%;
+    transform:translateX(-50%);
+  }
+  .closing .wrap{position:relative; z-index:2;}
+  .closing h2{
+    font-size:clamp(26px,4vw,36px);
+    margin:16px 0 20px;
+  }
+  .closing p{
+    color:#CFE0DC;
+    max-width:520px;
+    margin:0 auto 34px;
+    font-size:14.5px;
+  }
+  .cta-btn{
+    display:inline-block;
+    background:var(--brass);
+    color:#20262A;
+    font-weight:700;
+    padding:16px 46px;
+    text-decoration:none;
+    letter-spacing:.06em;
+    font-size:15px;
+    border:1px solid var(--brass);
+    transition:.25s;
+  }
+  .cta-btn:hover{
+    background:transparent;
+    color:#F1F1EA;
+  }
+  .closing-meta{
+    margin-top:40px;
+    display:flex;
+    justify-content:center;
+    gap:26px;
+    flex-wrap:wrap;
+    font-size:12.5px;
+    color:#AEC4BF;
+  }
+
+  footer{
+    padding:26px 0;
+    text-align:center;
+    font-size:12px;
+    color:var(--ink-soft);
+    background:var(--bg);
+    border-top:1px solid var(--line);
+  }
+
+  @media (max-width:760px){
+    .understand-grid{grid-template-columns:1fr;}
+    .flow-item{grid-template-columns:1fr; gap:6px;}
+    header .header-tag{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="logo">KAIROS<span>.</span></div>
+    <div class="header-tag">Web制作・システム開発チーム｜品質管理体制のご提案</div>
+  </div>
+</header>
+
+<section class="hero grid-tick">
+  <div class="wrap">
+    <span class="label">Proposal for soi7</span>
+    <h1>つくる人ではなく、<br><em>ズレに気づける人</em>を。<br>その役割、Kairosが担います。</h1>
+    <p class="lead">
+      LP制作の「品質管理・チェック・指示出し専任担当」募集を拝見しました。
+      作業ではなく判断に集中したい——そのご要望に、
+      制作現場を熟知したKairosのディレクション体制でお応えします。
+    </p>
+    <div class="check-marks">
+      <span>1案件あたり10分の的確な指摘</span>
+      <span>Chatwork24時間以内対応</span>
+      <span>WordPress／STUDIO／Shopify対応</span>
+    </div>
+  </div>
+</section>
+
+<section class="understand grid-tick">
+  <div class="wrap">
+    <span class="label">Understanding the Request</span>
+    <div class="section-head">
+      <h2 class="mincho">「見る側」に、専門性が要る。</h2>
+      <p>今回の募集内容を拝読し、単なるチェック代行ではなく、
+        品質の再現性を担保する“判断の型”を求めていらっしゃると理解しました。</p>
+    </div>
+    <div class="quote-block">
+      「完璧なデザインを求める役割ではなく、ズレを正す役割」——<br>
+      この一文に、継続案件を安定運用するうえで最も難しい部分が
+      表れていると感じています。感覚ではなく理由で語れる指摘、
+      そして具体的な文章に落とし込む力が問われる仕事です。
+    </div>
+    <div class="understand-grid">
+      <div class="item">
+        <div class="num">01 / 属人化</div>
+        <p>担当者の感覚に依存すると、案件ごとに品質基準がぶれてしまう。</p>
+      </div>
+      <div class="item">
+        <div class="num">02 / 指示の解像度</div>
+        <p>「なんとなく違う」ではなく、作業者が迷わない具体的な文章が必要。</p>
+      </div>
+      <div class="item">
+        <div class="num">03 / 即応性</div>
+        <p>案件発生時のみの稼働だからこそ、対応の速さと安定性が信頼に直結する。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="values">
+  <div class="wrap">
+    <span class="label">What Kairos Provides</span>
+    <div class="section-head">
+      <h2 class="mincho">Kairosが提供できる価値</h2>
+      <p>制作実務を積んだメンバーが、レビュー・ディレクションに専念できる体制で対応します。</p>
+    </div>
+    <div class="value-grid">
+      <div class="value-card">
+        <span class="idx">Value 01</span>
+        <h3>標準化されたチェック手順</h3>
+        <p>FV〜CTAまでの構成、導線、実装（表示崩れ・構造）を確認する手順をチェックリスト化。誰が対応しても同じ基準で判断できます。</p>
+      </div>
+      <div class="value-card">
+        <span class="idx">Value 02</span>
+        <h3>理由付きのフィードバック</h3>
+        <p>「情報設計」「視線導線」「余白のバランス」など、感覚ではなく根拠を持って指摘。修正意図が作業者に正確に伝わります。</p>
+      </div>
+      <div class="value-card">
+        <span class="idx">Value 03</span>
+        <h3>そのまま送れる修正指示文</h3>
+        <p>作業者へ送る修正メッセージを具体的な文章として整備。抽象的な指摘ではなく、実行可能な指示に変換します。</p>
+      </div>
+      <div class="value-card">
+        <span class="idx">Value 04</span>
+        <h3>Chatwork即応・24時間以内返信</h3>
+        <p>チーム体制のため対応が属人化せず、案件発生時も安定したレスポンスを維持できます。</p>
+      </div>
+      <div class="value-card">
+        <span class="idx">Value 05</span>
+        <h3>WordPress／STUDIO／Shopify横断対応</h3>
+        <p>実装構造への理解があるため、デザイン面だけでなく表示崩れや構造上の不備も併せて確認できます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="flow grid-tick">
+  <div class="wrap">
+    <span class="label">How We Work</span>
+    <div class="section-head">
+      <h2 class="mincho">進め方のイメージ</h2>
+      <p>まずは小さく、判断基準のすり合わせから始めます。</p>
+    </div>
+    <div class="flow-list">
+      <div class="flow-item">
+        <div class="step-tag">Alignment</div>
+        <div>
+          <h3>ヒアリング・基準のすり合わせ</h3>
+          <p>既存案件の構成・品質基準・重視ポイントを共有いただき、チェック観点を整理します。</p>
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="step-tag">Trial</div>
+        <div>
+          <h3>トライアル案件での実務確認</h3>
+          <p>実際のLP1件を対象に、確認手順・指摘・修正指示文の作成までを一連で実施し、精度をすり合わせます。</p>
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="step-tag">Operation</div>
+        <div>
+          <h3>継続運用開始</h3>
+          <p>案件発生時のみ稼働。1案件あたり10分程度のチェック・指示を、Chatworkにて随時対応します。</p>
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="step-tag">Review</div>
+        <div>
+          <h3>定期的な基準の見直し</h3>
+          <p>対応実績をもとに、チェックリストや指示テンプレートを継続的にアップデートしていきます。</p>
+        </div>
+      </div>
+    </div>
+    <div class="flow-note">クライアント対応は行わず、管理側との連携のみで完結する体制です。</div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="wrap">
+    <span class="label" style="color:#C9D9D5;">Next Action</span>
+    <h2 class="mincho">「判断」と「指示」に、<br>集中できる体制を。</h2>
+    <p>
+      応募文の設問（確認手順・修正指示文・稼働可否など）についても、
+      具体例を添えて詳しくご回答いたします。
+      まずはお気軽にお声がけください。
+    </p>
+    <a href="#" class="cta-btn">Chatworkでお問い合わせる</a>
+    <div class="closing-meta">
+      <span>Chatwork対応可</span>
+      <span>24時間以内返信</span>
+      <span>案件発生時のみ稼働</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © Kairos — Web制作・システム開発チーム｜Proposal for soi7
+</footer>
+
+</body>
+</html>
